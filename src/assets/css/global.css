@@ -1,5 +1,7 @@
 /* global css */
-html, body, #app{
+html,
+body,
+#app {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -14,4 +16,8 @@ html, body, #app{
 /* !important: 作用是提高指定样式规则的应用优先权(优先级), 无法被其他覆盖 */
 .el-card {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
+}
+
+.el-cascader-panel {
+    height: 300px !important;
 }
