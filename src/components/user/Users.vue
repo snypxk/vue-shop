@@ -393,9 +393,9 @@ export default {
     // 根据id删除用户
     async removeUserById(id) {
       console.log(id)
-      // 弹框访问用户是否删除MessageBox
+      // 弹框访问是否删除MessageBox
       const confirmResult = await this.$confirm(
-        '此操作将永久删除该用户, 是否继续?',
+        '此操作将删除该用户, 是否继续?',
         '提示',
         {
           confirmButtonText: '确定',
@@ -403,13 +403,13 @@ export default {
           type: 'warning'
         }
       ).catch(err => err)
-      // 如果用户确认删除,则返回值为 'confirm'
-      // 如果用户取消删除,则返回值为 'cacel'
+      // 如果确认删除,则返回值为 'confirm'
+      // 如果取消删除,则返回值为 'cacel'
       console.log(confirmResult)
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除')
       }
-      // 用户确认删除: 执行删除操作
+      // 确认删除: 执行删除操作
       const { data: res } = await this.$http.delete('users/' + id)
       // 删除不成功
       if (res.meta.status !== 200) {
