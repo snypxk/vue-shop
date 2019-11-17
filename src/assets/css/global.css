@@ -21,3 +21,19 @@ body,
 .el-cascader-panel {
     height: 300px !important;
 }
+
+.el-step {
+    margin: 15px 0;
+}
+
+.el-steps.el-steps--horizontal {
+    height: 100px !important;
+}
+
+.el-step__title {
+    font-size: 13px;
+}
+
+.ql-editor {
+    min-height: 300px;
+}

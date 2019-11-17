@@ -15,12 +15,12 @@
       <!-- 侧边栏 -->
       <el-aside :width="isCollapse ? '64px' : '200px'">
         <div class="toggle-button" @click="toggleCollapse" v-text="toggleShape"></div>
-        <!-- 侧边栏菜单区: 
+        <!-- 左侧边栏菜单区: 
         active-text-color: 当前激活菜单的文字颜色（仅支持 hex 格式）
-        unique-opened是否只保持一个子菜单的展开
+        unique-opened: 是否只保持一个子菜单的展开
         collapse: 是否折叠[默认 false]
         collapse-transition: 是否开启折叠动画[默认true]
-        router: 是否使用 vue-router 的模式，启用该模式会在激活导航时以 index 作为 path 进行路由跳转
+        router: 是否使用 vue-router 的模式，启用该模式会在激活导航时以 index的值 作为 path 进行路由跳转
         default-active: 当前激活菜单的 index-->
         <el-menu
           background-color="#333744"
@@ -32,7 +32,7 @@
           :router="true"
           :default-active="activePath"
         >
-          <!-- 一级菜单 -->
+          <!-- 一级菜单: 点击一级菜单是时不需要跳转 -->
           <el-submenu :index="item.id + ''" v-for="item in menuList" :key="item.id">
             <!-- 一级菜单的模板区域 -->
             <template slot="title">
@@ -42,7 +42,7 @@
               <span>{{item.authName}}</span>
             </template>
 
-            <!-- 二级菜单 -->
+            <!-- 二级菜单: 点击二级菜单时需要跳转 -->
             <el-menu-item
               :index="'/' + subItem.path"
               v-for="subItem in item.children"
@@ -110,6 +110,7 @@ export default {
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       // console.log(res)
       this.menuList = res.data
+      // console.log(this.menuList)
     },
     // 点击按钮，切换菜单的折叠与展开
     toggleCollapse() {
