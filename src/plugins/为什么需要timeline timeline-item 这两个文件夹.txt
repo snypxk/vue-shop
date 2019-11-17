@@ -1,0 +1,17 @@
+为什么需要timeline timeline-item 这两个文件夹?
+
+项目中的一个组件: Order.vue 中需要使用到 Element-UI 中的 [Timeline 时间线] 组件,
+
+Element-UI 2.6.0 [2019-03-01]的更新日志:
+
+	Timeline
+	添加 Timeline 组件 (by @jikkai in #14248)
+
+说明只有 2.6.0++才能使用 [Timeline 时间线] 组件
+
+
+而当前创建的项目安装的 Element-UI 插件 的最后发布时间是 2019-01-09
+
+因此,该插件中不具有  [Timeline 时间线] 组件,故不能使用.
+
+此时,要在项目中使用 [Timeline 时间线], 需要手动导入 [Timeline 时间线] 的相关JS文件
