@@ -37,7 +37,9 @@ import {
   Step,
   CheckboxGroup,
   Checkbox,
-  Upload
+  Upload,
+  Collapse,
+  CollapseItem
 } from 'element-ui'
 
 // 导入Element-UI中的 [Timeline 时间线] 组件
@@ -81,5 +83,7 @@ Vue.use(Checkbox)
 Vue.use(Upload)
 Vue.use(Timeline)
 Vue.use(TimelineItem)
+Vue.use(Collapse)
+Vue.use(CollapseItem)
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
