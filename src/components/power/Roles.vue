@@ -255,7 +255,7 @@ export default {
     },
     // 根据ID删除权限: - 请求路径：roles/:roleId/rights/:rightId
     async removeRightById(role, thirdRightId) {
-      console.log(role)
+      // console.log(role)
       // 弹框访问用户是否删除MessageBox
       const confirmReslut = await this.$confirm(
         '此操作将删除该权限, 是否继续?',
@@ -372,7 +372,7 @@ export default {
     // 点击'分配权限对话框'中的 确定按钮: 把编辑后的角色持久化到数据库
     async editRoleInfo() {
       this.$refs.editRoleFormRef.validate(async valid => {
-        console.log(valid)
+        // console.log(valid)
         // 如果验证不通过,返回
         if (!valid) return
         // 验证通过,则发起添加用户的网络请求
@@ -403,7 +403,7 @@ export default {
       ).catch(err => err)
       // 如果确认删除,则返回值为 'confirm'
       // 如果取消删除,则返回值为 'cacel'
-      console.log(confirmResult)
+      // console.log(confirmResult)
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除')
       }
@@ -425,7 +425,7 @@ export default {
     // 点击'添加角色的对话框'中的 确定按钮: 把添加角色持久化到数据库
     async addRole() {
       this.$refs.addRoleFormRef.validate(async valid => {
-        console.log(valid)
+        // console.log(valid)
         // 如果验证不通过,返回
         if (!valid) return
         // 验证通过,则发起添加角色的网络请求

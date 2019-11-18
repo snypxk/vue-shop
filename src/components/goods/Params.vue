@@ -407,7 +407,7 @@ export default {
     // attributes: 被编辑的参数对象
     async showEditDialog(attributes) {
       this.attrId = attributes.attr_id
-      console.log(this.attrId)
+      // console.log(this.attrId)
       // 根据参数ID查询参数
       const { data: res } = await this.$http.get(
         `categories/${this.cateId}/attributes/${attributes.attr_id}`
@@ -462,7 +462,7 @@ export default {
       ).catch(err => err)
       // 如果确认删除,则返回值为 'confirm'
       // 如果取消删除,则返回值为 'cacel'
-      console.log(confirmResult)
+      // console.log(confirmResult)
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除')
       }

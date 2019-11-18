@@ -51,7 +51,7 @@ export default {
       }
       // 获取成功
       this.rightsList = res.data
-      console.log(this.rightsList)
+      // console.log(this.rightsList)
     }
   }
 }

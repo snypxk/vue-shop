@@ -15,6 +15,12 @@ import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 
+// 导入NProgress进度条包的JS文件
+import NProgress from 'nprogress'
+// 导入NProgress进度条包的CSS文件
+import 'nprogress/nprogress.css'
+
+
 // 导入 axios 发送AJAX请求
 import axios from 'axios'
 // 配置基准路径
@@ -28,10 +34,19 @@ axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
     需要授权的 API, 必须在请求头中使用 Authorization 字段提供 token 令牌.
 */
 axios.interceptors.request.use(config => {
+  // 在每次发起请求时,展示进度条
+  NProgress.start()
   // 为请求头对象，添加 Token 验证的 Authorization 字段
   config.headers.Authorization = window.sessionStorage.getItem('token')
   return config
 })
+
+axios.interceptors.response.use(config => {
+  // 在每次获得请求响应后,隐藏进度条
+  NProgress.done()
+  return config
+})
+
 
 // 把axios 挂载到 Vue的原型对象上,使每一个Vue组件都可以通过 this发送AJAX请求
 Vue.prototype.$http = axios

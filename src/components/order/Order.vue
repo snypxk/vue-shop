@@ -42,7 +42,7 @@
         </el-table-column>
         <!-- 第七列: 操作 -->
         <el-table-column label="操作" width="120px">
-          <template slot-scope="scope">
+          <template>
             <el-tooltip effect="dark" content="地址" placement="top" :enterable="false">
               <el-button
                 type="primary"
@@ -193,7 +193,7 @@ export default {
       }
       this.orderList = res.data.goods
       this.total = res.data.total
-      console.log(this.orderList)
+      // console.log(this.orderList)
     },
     // ===== 当用户选择的当前显示记录数值[pagesize]改变时执行: 根据新的请求参数重新查询订单列表数据 =====
     handleSizeChange(newSize) {

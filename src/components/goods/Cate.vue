@@ -332,7 +332,7 @@ export default {
         return this.$message.error('获取分类失败')
       }
       this.editForm = res.data
-      console.log(this.editForm)
+      // console.log(this.editForm)
       // 展示'编辑分类对话框'
       this.editDialogVisible = true
     },
@@ -344,7 +344,7 @@ export default {
     // ===== 点击'编辑分类对话框'的确定按钮,把修改的分类数据持久化 =====
     async editConfirm() {
       this.$refs.editFormRef.validate(async valid => {
-        console.log(valid)
+        // console.log(valid)
         // 如果验证不通过,返回
         if (!valid) return
         // 验证通过,则发起修改分类的网络请求
@@ -377,7 +377,7 @@ export default {
       ).catch(err => err)
       // 如果确认删除,则返回值为 'confirm'
       // 如果取消删除,则返回值为 'cacel'
-      console.log(confirmResult)
+      // console.log(confirmResult)
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除')
       }

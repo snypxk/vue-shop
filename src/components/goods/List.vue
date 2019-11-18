@@ -141,7 +141,7 @@ export default {
       ).catch(err => err)
       // 如果确认删除,则返回值为 'confirm'
       // 如果取消删除,则返回值为 'cacel'
-      console.log(confirmResult)
+      // console.log(confirmResult)
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除')
       }

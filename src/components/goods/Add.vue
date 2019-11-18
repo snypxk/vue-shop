@@ -331,7 +331,7 @@ export default {
         }
         // 一个静态属性对应一个值,所以不用分割成字符串
         this.onlyTableData = res.data
-        console.log(this.onlyTableData)
+        // console.log(this.onlyTableData)
       }
     },
     // *************** 图片文件上传相关的处理函数 START ***************

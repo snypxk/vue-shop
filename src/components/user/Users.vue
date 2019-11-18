@@ -294,25 +294,25 @@ export default {
       }
       this.userlist = res.data.users
       this.total = res.data.total
-      console.log(res)
+      // console.log(res)
     },
     // 监听 pagesize 改变的事件
     handleSizeChange(newSize) {
-      console.log(newSize)
+      // console.log(newSize)
       this.queryInfo.pagesize = newSize
       // 根据新的每页显示的记录数,重新查询数据库
       this.getUserList()
     },
     // 监听 页码值 改变的事件
     handleCurrentChange(newPage) {
-      console.log(newPage)
+      // console.log(newPage)
       this.queryInfo.pagenum = newPage
       // 根据新的当前页码,重新查询数据库
       this.getUserList()
     },
     // 监听 switch开关状态的改变
     async userStateChanged(userInfo) {
-      console.log(userInfo)
+      // console.log(userInfo)
       const { data: res } = await this.$http.put(
         `users/${userInfo.id}/state/${userInfo.mg_state}`
       )
@@ -331,7 +331,7 @@ export default {
     addUser() {
       // 参数: valid[命名随你]是一个bool值,如果表单[addFormRef]验证通过则为 true; 反之为 false
       this.$refs.addFormRef.validate(async valid => {
-        console.log(valid)
+        // console.log(valid)
         // 如果验证不通过,返回
         if (!valid) return
         // 验证通过,则发起添加用户的网络请求
@@ -348,7 +348,7 @@ export default {
     },
     // 展示编辑用户的对话框
     async showEditDialog(id) {
-      console.log(id)
+      // console.log(id)
       // 根据ID查询用户信息
       const { data: res } = await this.$http.get('users/' + id)
       // 查询失败
@@ -392,7 +392,7 @@ export default {
     },
     // 根据id删除用户
     async removeUserById(id) {
-      console.log(id)
+      // console.log(id)
       // 弹框访问是否删除MessageBox
       const confirmResult = await this.$confirm(
         '此操作将删除该用户, 是否继续?',
@@ -405,7 +405,7 @@ export default {
       ).catch(err => err)
       // 如果确认删除,则返回值为 'confirm'
       // 如果取消删除,则返回值为 'cacel'
-      console.log(confirmResult)
+      // console.log(confirmResult)
       if (confirmResult !== 'confirm') {
         return this.$message.info('已取消删除')
       }
